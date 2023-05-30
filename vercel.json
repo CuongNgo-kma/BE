@@ -1,13 +1,13 @@
-{
-  "version": 2,
-  "builds": [{ "src": "./server.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "/" }],
-  "env": {
-    "MONGODB_URL": "mongodb+srv://cuong:cuong1A@cluster0.ekczkjy.mongodb.net/?retryWrites=true&w=majority",
-    "ACCESS_TOKEN_SECRET": "GdfvtCz2#JjW8h3)baw@S3RjUcH8b)yGZ&u#a6f5P28anpNWaS",
-    "REFRESH_TOKEN_SECRET": "z2p%HXr6@Gxq7&VS%ygeNvYp6&Lsrsw9Sf#(pV^qhNILPS8tZzntpj4bV57WIM+P",
-    "CLOUD_NAME": "dshuwo0k0",
-    "CLOUD_API_KEY": "664464584361741",
-    "CLOUD_API_SECRET": "i0LcUESX266ARbARPCCbxpcNdhI"
-  }
-}
+// {
+//   "version": 2,
+//   "builds": [{ "src": "./server.js", "use": "@vercel/node" }],
+//   "routes": [{ "src": "/(.*)", "dest": "/" }],
+//   "env": {
+//     "MONGODB_URL": "mongodb+srv://cuong:cuong1A@cluster0.ekczkjy.mongodb.net/?retryWrites=true&w=majority",
+//     "ACCESS_TOKEN_SECRET": "GdfvtCz2#JjW8h3)baw@S3RjUcH8b)yGZ&u#a6f5P28anpNWaS",
+//     "REFRESH_TOKEN_SECRET": "z2p%HXr6@Gxq7&VS%ygeNvYp6&Lsrsw9Sf#(pV^qhNILPS8tZzntpj4bV57WIM+P",
+//     "CLOUD_NAME": "dshuwo0k0",
+//     "CLOUD_API_KEY": "664464584361741",
+//     "CLOUD_API_SECRET": "i0LcUESX266ARbARPCCbxpcNdhI"
+//   }
+// }
