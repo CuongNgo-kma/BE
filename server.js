@@ -33,6 +33,11 @@ app.use("/api", require("./routes/paymentRouter")); //
 // app.get("/cancel", (req, res) => {
 //     res.render("cancel")
 // })
+app.get("/", (req, res) => {
+    res.status(200).json({
+      message: "123213"
+    })
+})
 
 //connect to mongodb
 const URI = process.env.MONGODB_URL;
@@ -54,5 +59,5 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log("server in running on port", PORT);
+  console.log(`server in running on http://localhost:${PORT}/`, PORT);
 });
