@@ -35,7 +35,7 @@ app.use("/api", require("./routes/paymentRouter")); //
 // })
 app.get("/", (req, res) => {
     res.status(200).json({
-      message: "Welcome!"
+      message: "Welcome bé iu!"
     })
 })
 
