@@ -59,8 +59,6 @@ const userCtrl = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: false,
-        secure: false,
-        sameSite: 'none',
         path: "/user/refresh_token",
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7d
       });
