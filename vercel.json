@@ -8,8 +8,24 @@
   ],
   "routes": [
     {
+      "src": "/api/upload",
+      "methods": ["POST"],
+      "dest": "/server.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "/server.js"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/upload",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
     }
   ]
 }
