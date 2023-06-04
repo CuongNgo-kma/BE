@@ -14,13 +14,25 @@ const app = express();
 app.use(express.json());
 app.use(cookieParse());
 app.use(cors());
-app.post('/api/upload', (req, res) => {
-  // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
-  res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
-  // Xử lý và trả về phản hồi
-  res.json({ message: 'Resource response' });
-});
-
+// app.post('/api/upload', (req, res) => {
+//   // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
+//   res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
+  
+//   res.json({ message: 'Resource response' });
+// });
+// app.post('/api/destroy', (req, res) => {
+//   // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
+//   res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
+//   // Xử lý và trả về phản hồi
+//   res.json({ message: 'Resource response' });
+// });
+app.use(
+  cors({
+    origin: 'https://fe-olive-theta.vercel.app',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 app.use(
   fileUpload({
     useTempFiles: true,
