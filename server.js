@@ -13,14 +13,12 @@ const app = express();
 // app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(cookieParse());
-var corsOptions = {
-  origin: 'https://fe-olive-theta.vercel.app',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
 
-app.get('/api/upload', cors(corsOptions), function (req, res, next) {
-  res.json({ msg: 'This is CORS-enabled for only example.com.' })
-})
+const corsOptions = {
+  origin: 'https://fe-olive-theta.vercel.app'
+};
+
+app.use(cors(corsOptions));
 
 app.use(
   fileUpload({
