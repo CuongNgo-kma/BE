@@ -18,7 +18,11 @@ const corsOptions = {
   origin: 'https://fe-olive-theta.vercel.app'
 };
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); 
+app.get(cors(corsOptions));
+app.post(cors(corsOptions));
+
+
 
 app.use(
   fileUpload({
