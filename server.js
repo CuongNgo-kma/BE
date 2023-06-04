@@ -13,7 +13,12 @@ const app = express();
 // app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(cookieParse());
-app.use(cors());
+const corsOptions = {
+  origin: 'https://fe-olive-theta.vercel.app'
+};
+
+app.use(cors(corsOptions));
+
 app.use(
   fileUpload({
     useTempFiles: true,
