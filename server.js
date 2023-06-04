@@ -26,13 +26,13 @@ app.use(cors());
 //   // Xử lý và trả về phản hồi
 //   res.json({ message: 'Resource response' });
 // });
-app.use(
-  cors({
-    origin: 'https://fe-olive-theta.vercel.app',
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  })
-);
+// app.use(
+//   cors({
+//     origin: 'https://fe-olive-theta.vercel.app',
+//     methods: ['GET', 'POST'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//   })
+// );
 app.use(
   fileUpload({
     useTempFiles: true,
@@ -42,7 +42,11 @@ app.use(
 //Routes
 app.use("/user", require("./routes/userRouter")); // sử dụng /user tương ứng trỏ đường dẫn /routes/userRouter
 app.use("/api", require("./routes/categoryRouter")); //
-app.use("/api", require("./routes/upload")); //
+app.use("/api", cors({
+  origin: 'https://fe-olive-theta.vercel.app',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}),require("./routes/upload")); //
 app.use("/api", require("./routes/productRouter")); //
 app.use("/api", require("./routes/paymentRouter")); //
 
