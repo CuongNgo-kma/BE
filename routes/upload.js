@@ -39,7 +39,7 @@ router.post('/upload', auth, (req, res) => {
     }
 })
 
-router.post('/destroy', auth, authAdmin, (req, res) => {
+router.post('/destroy', auth, (req, res) => {
     const { public_id } = req.body
     try {
         if (!public_id) {
