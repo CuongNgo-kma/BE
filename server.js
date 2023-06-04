@@ -13,7 +13,8 @@ const app = express();
 // app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(cookieParse());
-app.use(cors());
+app.options("*", cors());
+app.use(cors({ origin: true }));
 app.use(
   fileUpload({
     useTempFiles: true,
