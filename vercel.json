@@ -11,5 +11,16 @@
       "src": "/(.*)",
       "dest": "/server.js"
     }
+  ],
+  "headers": [
+    {
+      "source": "/api/upload",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://fe-olive-theta.vercel.app"
+        }
+      ]
+    }
   ]
 }
