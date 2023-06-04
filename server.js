@@ -13,8 +13,14 @@ const app = express();
 // app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(cookieParse());
-app.options("*", cors());
-app.use(cors({ origin: true }));
+app.use(cors());
+app.get('/api/upload', (req, res) => {
+  // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
+  res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
+  // Xử lý và trả về phản hồi
+  res.json({ message: 'Resource response' });
+});
+
 app.use(
   fileUpload({
     useTempFiles: true,
