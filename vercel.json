@@ -10,11 +10,7 @@
     {
       "src": "/api/upload",
       "methods": ["POST"],
-      "dest": "/server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/server.js"
+      "dest": "./server.js"
     }
   ],
   "headers": [
