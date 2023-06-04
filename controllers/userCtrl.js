@@ -62,7 +62,6 @@ const userCtrl = {
         path: "/user/refresh_token",
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7d
       });
-
       res.json({ accesstoken });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -82,7 +81,7 @@ const userCtrl = {
       if (!rf_token)
         return res.status(400).json({ msg: "Please Login or Register" });
 
-      jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
+      jwt.verify(rf_token, "z2p%HXr6@Gxq7&VS%ygeNvYp6&Lsrsw9Sf#(pV^qhNILPS8tZzntpj4bV57WIM+P", (err, user) => {
         if (err)
           return res.status(400).json({ msg: "Please Login or Register" });
 
