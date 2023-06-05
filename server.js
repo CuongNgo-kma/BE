@@ -59,11 +59,11 @@ cloudinary.config({
 //   // Xử lý và trả về phản hồi
 //   res.json({ message: 'Resource response' });
 // });
-app.use(
+app.use('api/upload',
   cors({
     origin: 'https://fe-olive-theta.vercel.app',
     methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Access-Control-Allow-Origin', 'Authorization'],
   })
 );
 app.use(
