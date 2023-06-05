@@ -22,7 +22,7 @@ cloudinary.config({
   api_secret: 'i0LcUESX266ARbARPCCbxpcNdhI'
 })
 
-app.post('/api', (req, res) => {
+app.post('/api/upload', (req, res) => {
   // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
   res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
   try {
