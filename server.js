@@ -22,50 +22,50 @@ cloudinary.config({
   api_secret: 'i0LcUESX266ARbARPCCbxpcNdhI'
 })
 
-app.post('/api/upload', (req, res) => {
-  // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
-  res.setHeader('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  try {
-    if (!req.files || Object.keys(req.files).length === 0) {
-      return res.status(400).json({ msg: "No files were uploaded." })
-    }
-    const file = req.files.file;
-    if (file.size > 1024 * 1024 * 2) { // 1024*1024 = 1MB
-      removeTmp(file.tempFilePath)
-      return res.status(400).json({ msg: "Size too large" })
-    }
-    if (file.mimetype !== "image/jpeg" && file.mimetype !== 'image/png') {
-      removeTmp(file.tempFilePath)
-      return res.status(400).json({ msg: "File format is incorrect." })
-    }
-    console.log(file);
-    cloudinary.uploader.upload(file.tempFilePath, { folder: "dataWeb-thuong-mai" }, async (err, result) => {
-      if (err) {
-        throw err
-      }
-      removeTmp(file.tempFilePath)
-      res.json({ public_id: result.public_id, url: result.secure_url })
-    })
-  } catch (error) {
-    return res.status(500).json({ msg: error.message })
-  }
-  res.json({ message: 'Resource response' });
-});
+// app.post('/api/upload', (req, res) => {
+//   // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
+//   res.setHeader('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//   try {
+//     if (!req.files || Object.keys(req.files).length === 0) {
+//       return res.status(400).json({ msg: "No files were uploaded." })
+//     }
+//     const file = req.files.file;
+//     if (file.size > 1024 * 1024 * 2) { // 1024*1024 = 1MB
+//       removeTmp(file.tempFilePath)
+//       return res.status(400).json({ msg: "Size too large" })
+//     }
+//     if (file.mimetype !== "image/jpeg" && file.mimetype !== 'image/png') {
+//       removeTmp(file.tempFilePath)
+//       return res.status(400).json({ msg: "File format is incorrect." })
+//     }
+//     console.log(file);
+//     cloudinary.uploader.upload(file.tempFilePath, { folder: "dataWeb-thuong-mai" }, async (err, result) => {
+//       if (err) {
+//         throw err
+//       }
+//       removeTmp(file.tempFilePath)
+//       res.json({ public_id: result.public_id, url: result.secure_url })
+//     })
+//   } catch (error) {
+//     return res.status(500).json({ msg: error.message })
+//   }
+//   res.json({ message: 'Resource response' });
+// });
 // app.post('/api/destroy', (req, res) => {
 //   // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
 //   res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
 //   // Xử lý và trả về phản hồi
 //   res.json({ message: 'Resource response' });
 // });
-// app.use(
-//   cors({
-//     origin: 'https://fe-olive-theta.vercel.app',
-//     methods: ['GET', 'POST'],
-//     allowedHeaders: ['Content-Type', 'Authorization'],
-//   })
-// );
+app.use(
+  cors({
+    origin: 'https://fe-olive-theta.vercel.app',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 app.use(
   fileUpload({
     useTempFiles: true,
