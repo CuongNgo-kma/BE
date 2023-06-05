@@ -24,7 +24,7 @@ cloudinary.config({
 
 app.post('/api/upload', (req, res) => {
   // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
-  res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
+  res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app/api/upload');
   try {
     if (!req.files || Object.keys(req.files).length === 0) {
       return res.status(400).json({ msg: "No files were uploaded." })
