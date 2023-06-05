@@ -7,18 +7,13 @@ const cookieParse = require("cookie-parser");
 const { json } = require("express");
 const auth = require("./middleware/auth");
 const authAdmin = require("./middleware/authAdmin");
-const uploadRouter = require('./routes/upload');
 require("dotenv").config();
 
 const app = express();
 // app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(cookieParse());
-// app.use(cors());
-app.use(cors({
-  origin: 'https://fe-olive-theta.vercel.app'
-}));
-app.use('/api/upload', uploadRouter);
+app.use(cors());
 // app.post('/api/upload', (req, res) => {
 //   // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
 //   res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');

@@ -3,6 +3,8 @@ const cloudinary = require('cloudinary').v2
 const auth = require('../middleware/auth')
 const authAdmin = require('../middleware/authAdmin')
 const fs = require('fs')
+// const express = require('express')
+// const app = express()
 
 cloudinary.config({
     cloud_name: 'dshuwo0k0',
@@ -11,9 +13,9 @@ cloudinary.config({
 })
 
 
-
 router.post('/upload', auth, (req, res) => {
     try {
+        res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
         if (!req.files || Object.keys(req.files).length === 0) {
             return res.status(400).json({ msg: "No files were uploaded." })
         }
