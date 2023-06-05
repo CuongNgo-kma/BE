@@ -15,9 +15,21 @@ const app = express();
 app.use(express.json());
 app.use(cookieParse());
 app.use(cors());
-app.post('/api/upload', (req, res) => {
+
+cloudinary.config({
+  cloud_name: 'dshuwo0k0',
+  api_key: '664464584361741',
+  api_secret: 'i0LcUESX266ARbARPCCbxpcNdhI'
+})
+
+app.post('/api/upload', auth, (req, res) => {
   // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
   res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
+  const removeTmp = (path) => {
+    fs.unlink(path, err => {
+      if (err) throw err
+    })
+  }
   try {
     if (!req.files || Object.keys(req.files).length === 0) {
       return res.status(400).json({ msg: "No files were uploaded." })
