@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParse());
 app.use(cors());
-app.post('/api', (req, res) => {
+app.post('/api/upload', (req, res) => {
   // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
   res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
   
