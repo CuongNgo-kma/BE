@@ -66,12 +66,12 @@ cloudinary.config({
 //     allowedHeaders: ['Access-Control-Allow-Origin', 'Authorization'],
 //   })
 // );
-app.post('api/upload',(req, res)=>{
-  res.setHeader('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.json({msg: "non"})
-})
+// app.post('api/upload',(req, res)=>{
+//   res.setHeader('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//   res.json({msg: "non"})
+// })
 app.use(
   fileUpload({
     useTempFiles: true,
