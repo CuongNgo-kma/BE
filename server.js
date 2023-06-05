@@ -14,12 +14,12 @@ const app = express();
 app.use(express.json());
 app.use(cookieParse());
 app.use(cors());
-// app.post('/api/upload', (req, res) => {
-//   // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
-//   res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
+app.post('/api/upload', (req, res) => {
+  // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
+  res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
   
-//   res.json({ message: 'Resource response' });
-// });
+  res.json({ message: 'Resource response' });
+});
 // app.post('/api/destroy', (req, res) => {
 //   // Set tiêu đề 'Access-Control-Allow-Origin' cho phép truy cập từ nguồn gốc khác
 //   res.header('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
@@ -40,7 +40,7 @@ app.use(
 );
 
 //Routes
-app.use("/user", require("./routes/userRouter")); 
+app.use("/user", require("./routes/userRouter"),); 
 app.use("/api", require("./routes/categoryRouter")); //
 app.use("/api", require("./routes/upload")); //
 app.use("/api", require("./routes/productRouter")); //
