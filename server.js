@@ -59,13 +59,18 @@ cloudinary.config({
 //   // Xử lý và trả về phản hồi
 //   res.json({ message: 'Resource response' });
 // });
-app.use('api/upload',
-  cors({
-    origin: 'https://fe-olive-theta.vercel.app',
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Access-Control-Allow-Origin', 'Authorization'],
-  })
-);
+// app.use('api/upload',
+//   cors({
+//     origin: 'https://fe-olive-theta.vercel.app',
+//     methods: ['GET', 'POST'],
+//     allowedHeaders: ['Access-Control-Allow-Origin', 'Authorization'],
+//   })
+// );
+app.use('api/upload',(req, res)=>{
+  res.setHeader('Access-Control-Allow-Origin', 'https://fe-olive-theta.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+})
 app.use(
   fileUpload({
     useTempFiles: true,
