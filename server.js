@@ -20,7 +20,7 @@ app.use(fileUpload({
 
 
 //Routes
-app.use('/user', require('./routes/userRouter')) // sử dụng /user tương ứng trỏ đường dẫn /routes/userRouter
+app.use('/user', require('./routes/userRouter')) //
 app.use('/api', require('./routes/categoryRouter')) // 
 app.use('/api', require('./routes/upload')) // 
 app.use('/api', require('./routes/productRouter')) // 
