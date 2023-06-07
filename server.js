@@ -13,7 +13,18 @@ const app = express()
 // app.set('view engine', 'ejs');
 app.use(express.json())
 app.use(cookieParse())
-app.use(cors())
+app.use(cors({
+    origin: [
+        'http://localhost:3000'
+    ],
+    credentials: true,
+    methods: ['GET', 'PUT','POST', 'DELETE', 'OPTIONS'],
+    allowedHeaders: [
+        'Access-Control-Allow-Origin',
+        'Content-Type',
+        'Authorization'
+    ]
+}))
 app.use(fileUpload({
     useTempFiles: true
 }))
